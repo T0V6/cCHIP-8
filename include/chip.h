@@ -6,11 +6,12 @@
 
 #include <stdint.h>
 #include "memory.h"
-#include "keys.h"
 #include "graphics.h"
+#include "keys.h"
 
 
-typedef struct {
+/* CHIP-8 Structure */
+typedef struct chip {
 
     // Registers are labeled as V<hex_value>. VF is reserved for operations' returns
     // Each register holds values within [0x00, 0xFF] (1B)
@@ -72,5 +73,9 @@ typedef struct {
     uint16_t opcode;
     
 } Chip;
+
+
+/* Initialises chip */
+void chip_init(Chip*, const char*);
 
 #endif // CHIP8_H

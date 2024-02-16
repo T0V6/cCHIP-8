@@ -30,13 +30,21 @@
 */
 
 
+/* Program's starting address */
 #define CC8_ADDR_PROG_START (0x200U)
 
 
+/* Amount of registers */
 #define CC8_SIZE_REGISTERS  (16U)
+/* Memory's size */
 #define CC8_SIZE_RAM        (4096U)
+/* Stack levels */
 #define CC8_SIZE_STACK      (16U)
+/* Amount of usable keys */
 #define CC8_SIZE_KEYS       (16U)
 
+
+/* Initialises chip's memory (starting at 0x200) with ROM contents  */
+int8_t load_rom(Chip*, const char*);
 
 #endif

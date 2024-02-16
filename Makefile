@@ -6,7 +6,7 @@ INCLUDE_DIR = include
 
 # Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra -I$(INCLUDE_DIR)
+CFLAGS = -Wall -Wextra -std=c17 -I$(INCLUDE_DIR)
 
 # Source and Object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
