@@ -4,8 +4,7 @@
 #ifndef FONTS_H
 #define FONTS_H
 
-#include <stdint.h>
-#include "memory.h"
+#include "cchip8.h"
 
 /*
     Most ROMs expect 16 characters to write to the screen. Characters are sorta like sprites.

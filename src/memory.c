@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "memory.h"
-#include "chip.h"
 
 
 //////////////////////////////////////////
@@ -61,7 +60,7 @@ int8_t load_rom(Chip* obj, const char* file)
                 obj->mem[address] = buffer[i]; 
             }
 
-            printf("[MEMORY] Loaded ROM successfully\n");
+            printf("[MEMORY] ROM loaded successfully\n");
 
             free(buffer);
         }
@@ -97,6 +96,9 @@ int8_t load_fonts(Chip* obj, uint8_t* fonts)
 
         obj->mem[address] = fonts[i];
     }
+
+    printf("[MEMORY] Fonts loaded successfully\n");
+
 
     return 0;
 }

@@ -5,7 +5,7 @@
 */
 
 
-#include "chip.h"
+#include "cchip8.h"
 
 
 int main(void)
