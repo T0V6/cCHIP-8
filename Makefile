@@ -2,10 +2,11 @@
 SRC_DIR = src
 OBJ_DIR = build
 BIN_DIR = bin
+INCLUDE_DIR = include
 
 # Compiler
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -I$(INCLUDE_DIR)
 
 # Source and Object files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
