@@ -1,5 +1,5 @@
-#ifndef CCHIP8_H
-#define CCHIP8_H
+#ifndef GLOBALS_H
+#define GLOBALS_H
 
 #include <stdint.h>
 
@@ -94,4 +94,4 @@ typedef struct chip {
     
 } Chip;
 
-#endif // CCHIP8_H
+#endif // GLOBALS_H

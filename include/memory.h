@@ -1,7 +1,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
-#include "cchip8.h"
+#include "globals.h"
 
 
 /* Memory layout (4kB)

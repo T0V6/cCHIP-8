@@ -1,22 +1,20 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "memory.h"
 
 
 //////////////////////////////////////////
 ////            Functions             ////
 //////////////////////////////////////////
-
 static int8_t helper_is_null(void* ptr, const char* name)
 {
     if (ptr == NULL) {
-        fprintf(stderr, "[MEMORY] Error:  %s pointer was NULL\n", name);
+        fprintf(stderr, "[MEMORY] Error: %s pointer was NULL\n", name);
 
         return -1;
     }
     else { return 0; }
 }
-
 
 
 int8_t load_rom(Chip* obj, const char* file)

@@ -4,12 +4,14 @@
             Therefore, changes must be done cautiously and in accordance with the expected files.
 */
 
-
-#include "cchip8.h"
+#include <time.h>
+#include "chip.h"
 
 
 int main(void)
 {
+    srand(time(NULL)); // seed random
+    
 
     return 0;
 }
