@@ -7,9 +7,6 @@
 ////            Functions             ////
 //////////////////////////////////////////
 
-static int generate_random(int min, int max)   { return ((rand() % (max - min + 1)) + min); }
-
-
 void chip_init(Chip* obj, const char* romfile)
 {
     obj->reg_pc = CC8_ADDR_PROG_START;

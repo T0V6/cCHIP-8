@@ -5,13 +5,10 @@
 #define CHIP_H
 
 #include <stdlib.h>
-#include <string.h>
+#include <memory.h>
 #include "globals.h"
-#include "memory.h"
+#include "mem.h"
 
-
-/* Random int generator */
-static int generate_random(int, int);
 
 /* Initialises chip */
 void chip_init(Chip*, const char*);

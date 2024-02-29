@@ -1,5 +1,5 @@
-#ifndef MEMORY_H
-#define MEMORY_H
+#ifndef MEM_H
+#define MEM_H
 
 #include "globals.h"
 
@@ -38,4 +38,4 @@ int8_t load_rom(Chip*, const char*);
 /* Loads font set into reserved memory */
 int8_t load_fonts(Chip*, uint8_t*);
 
-#endif
+#endif  // MEM_H
