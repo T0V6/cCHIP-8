@@ -10,7 +10,7 @@
 
 int main(void)
 {
-    srand(time(NULL)); // seed random
+    srand(time(NULL));
     
 
     return 0;

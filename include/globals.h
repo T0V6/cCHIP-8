@@ -18,15 +18,17 @@
 #define CC8_SIZE_STACK      (16U)
 /* Amount of usable keys */
 #define CC8_SIZE_KEYS       (16U)
-/* Total bytes for fonts (5B * 16)*/
+/* Total bytes for fonts (5B * 16) */
 #define CC8_SIZE_FONT       (80U)
 
 
 
-/* Graphics buffer width */
+/* Graphics buffer width (columns) */
 #define CC8_GFX_BUFF_WIDTH  (64U) 
-/* Graphics buffer height */
+/* Graphics buffer height (rows) */
 #define CC8_GFX_BUFF_HEIGHT (32U)
+/* Display buffer size (for linear array managment) */
+#define CC8_GFX_BUFF_SIZE   (CC8_GFX_BUFF_WIDTH * CC8_GFX_BUFF_HEIGHT)
 
 
 
@@ -81,7 +83,7 @@ typedef struct chip {
     //      * 0x0x00000000  = off
     //      * 0xFFFFFFFF    = on
     // XOR operation is performed between the sprite pixel and the display pixe; pixels will turn on only when their statuses differ
-    uint32_t graphics_buffer[CC8_GFX_BUFF_WIDTH * CC8_GFX_BUFF_HEIGHT];
+    uint32_t graphics_buffer[CC8_GFX_BUFF_SIZE];
 
     // Operation code
     // A CPU instruction, its size is 2B
