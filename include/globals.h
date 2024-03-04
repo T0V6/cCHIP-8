@@ -34,7 +34,6 @@
 
 /* CHIP-8 Structure */
 typedef struct chip {
-
     // Registers are labeled as V<hex_value>. VF is reserved for operations' returns
     // Each register holds values within [0x00, 0xFF] (1B)
     // CPU storage
@@ -93,7 +92,6 @@ typedef struct chip {
     //          Then, we need to combine them into a single value. Operation would look like this:
     //                  * opcode = (memory[reg_pc] << 8U) | memory[reg_pc + 1]
     uint16_t opcode;
-    
 } Chip;
 
 #endif // GLOBALS_H
