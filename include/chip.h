@@ -5,15 +5,13 @@
 #define CHIP_H
 
 #include <stdlib.h>
-#include <memory.h>
 #include "mem.h"
-#include "opcodes.h"
 
 
 /* Initialises chip */
 void chip_init(Chip*, const char*);
 
-/* Run function, executes a cycle */
+/* Executes a cycle */
 void chip_run(Chip*);
 
 #endif // CHIP_H

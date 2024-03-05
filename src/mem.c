@@ -19,7 +19,7 @@ static int8_t helper_is_null(void* ptr, const char* name)
 
 
 
-int8_t load_rom(Chip* obj, const char* file)
+int8_t ram_load_rom(Chip* obj, const char* file)
 {
     if (helper_is_null(obj, "Chip") != 0)   { return -1; }
 
@@ -84,7 +84,7 @@ int8_t load_rom(Chip* obj, const char* file)
 }
 
 
-void load_fonts(Chip* obj, uint8_t* fonts) 
+void ram_load_fonts(Chip* obj, uint8_t* fonts) 
 {
     printf("[MEMORY] Loading Fonts into RAM...\n");
 
@@ -101,7 +101,7 @@ void load_fonts(Chip* obj, uint8_t* fonts)
 }
 
 
-void set_instructions(void)
+void ram_load_instructions(void)
 {
     cc8_instruction[0x0] = &opcodes_0;
     cc8_instruction[0x1] = &op_1nnn;

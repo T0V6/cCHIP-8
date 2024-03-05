@@ -4,6 +4,10 @@ OBJ_DIR = build
 BIN_DIR = bin
 INCLUDE_DIR = include
 
+# SDL flags
+SDL_CFLAGS = $(shell sdl2-config --cflags)
+SDL_LFLAGS = $(shell sdl2-config --libs)
+
 # Compiler
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c17 -I$(INCLUDE_DIR)
@@ -21,11 +25,11 @@ $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
 # Build
 $(TARGET): $(OBJ_FILES)
-	$(CC) $^ -o $@
+	$(CC) $^ $(SDL_LFLAGS) -o $@
 
 # Compile
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(SDL_CFLAGS) -c $< -o $@
 
 # Clean
 clean:

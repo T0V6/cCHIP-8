@@ -9,7 +9,7 @@
 
 void op_00e0(Chip* obj) 
 {
-    memset(obj->graphics_buffer, 0x00000000U, sizeof(obj->graphics_buffer));
+    memset(obj->gfx.graphics_buffer, 0x00000000U, sizeof(obj->gfx.graphics_buffer));
 
     return;
 }
@@ -299,14 +299,14 @@ void op_dxyn(Chip* obj)
                 //      Equivalent to (row * ARR_WIDTH + column)
                 // Wrap so it doesn't go out of bounds
                 uint16_t address_pixel = ((pos_y + y) * CC8_GFX_BUFF_WIDTH + (pos_x + x)) % CC8_GFX_BUFF_SIZE;
-                uint32_t* display_pixel = &(obj->graphics_buffer[address_pixel]);
+                uint32_t* display_pixel = &(obj->gfx.graphics_buffer[address_pixel]);
 
                 // We know that 1 bit is set to 1 (see if condition above)
                 // Therefore, if the current bit in the display at (x,y) position is also set to 1, it will be flipped (XOR)
                 // If that happens, we must set Vf to 1 as pixels collide
                 if ((*display_pixel) == UINT32_MAX)   { obj->regs[CC8_SIZE_REGISTERS -1] = 1; }
 
-                obj->graphics_buffer[address_pixel] ^= UINT32_MAX; // draw
+                obj->gfx.graphics_buffer[address_pixel] ^= UINT32_MAX; // draw
             }
         }
     }
