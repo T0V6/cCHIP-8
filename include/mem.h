@@ -34,9 +34,11 @@
 
 
 /* Initialises chip's memory (starting at 0x200) with ROM contents  */
-int8_t ram_load_rom(Chip*, const char*);
+int8_t ram_load_rom(Chip* obj, const char* file);
+
 /* Loads font set into reserved memory */
-void ram_load_fonts(Chip*, uint8_t*);
+void ram_load_fonts(Chip* obj, const uint8_t* fonts);
+
 /* Set function pointer tables with their respective instructions */
 void ram_load_instructions(void);
 

@@ -9,9 +9,9 @@
 
 
 /* Initialises chip */
-void chip_init(Chip*, const char*);
+int8_t chip_init(Chip* obj, const char* romfile);
 
 /* Executes a cycle */
-void chip_run(Chip*);
+void chip_run(Chip* obj);
 
 #endif // CHIP_H

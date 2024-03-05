@@ -5,21 +5,28 @@
 #include "opcodes.h"
 #include "graphics.h"
 
-//////////////////////////////////////////
-////            Functions             ////
-//////////////////////////////////////////
 
-void chip_init(Chip* obj, const char* romfile)
+int8_t chip_init(Chip* obj, const char* romfile)
 {
-    obj->reg_pc = CC8_ADDR_PROG_START;
+    if (!obj) {
+        fprintf(stderr, "[CHIP] Error: struct Chip pointer was NULL\n");
 
-    if (ram_load_rom(obj, romfile) != 0)    { fprintf(stderr, "[CHIP] Error reading ROM\n"); }
+        return -1;
+    }
 
-    ram_load_fonts(obj, fontset);
+    if (ram_load_rom(obj, romfile) != 0) { 
+        fprintf(stderr, "[CHIP] Error reading ROM\n"); 
+
+        return -1;
+    }
+
+    ram_load_fonts(obj, cc8_fontset);
 
     ram_load_instructions();
 
-    return;
+    obj->reg_pc = CC8_ADDR_PROG_START;
+
+    return 0;
 }
 
 void chip_run(Chip* obj)

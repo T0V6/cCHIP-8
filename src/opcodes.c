@@ -440,6 +440,10 @@ void op_fx65(Chip* obj)
 
 
 
+//////////////////////////////////////////
+////      Decoding Instructions       ////
+//////////////////////////////////////////
+
 void (*cc8_instruction[0xF + 1])(Chip* obj) = { NULL };
 void (*cc8_table_0[0xE + 1])(Chip* obj)     = { NULL };
 void (*cc8_table_8[0xE + 1])(Chip* obj)     = { NULL };

@@ -4,29 +4,12 @@
 #include "opcodes.h"
 
 
-//////////////////////////////////////////
-////            Functions             ////
-//////////////////////////////////////////
-static int8_t helper_is_null(void* ptr, const char* name)
-{
-    if (ptr == NULL) {
-        fprintf(stderr, "[MEMORY] Error: %s pointer was NULL\n", name);
-
-        return -1;
-    }
-    else { return 0; }
-}
-
-
-
 int8_t ram_load_rom(Chip* obj, const char* file)
 {
-    if (helper_is_null(obj, "Chip") != 0)   { return -1; }
-
     FILE* f = fopen(file, "rb");
 
 
-    if (f != NULL) {
+    if (f) {
         printf("[MEMORY] opened file %s\n", file);
 
         if (fseek(f, 0, SEEK_END) != 0) {
@@ -39,7 +22,7 @@ int8_t ram_load_rom(Chip* obj, const char* file)
         long size = ftell(f);   // get file size
 
         char* buffer = (size >= 0) ? (char*)malloc((size_t)size) : NULL; // allocate buffer
-        if (buffer != NULL) {
+        if (buffer) {
             rewind(f); // go to the beginning of the file
             
             size_t bytes_read = fread(buffer, 1, (size_t)size, f);
@@ -83,8 +66,7 @@ int8_t ram_load_rom(Chip* obj, const char* file)
     return 0;
 }
 
-
-void ram_load_fonts(Chip* obj, uint8_t* fonts) 
+void ram_load_fonts(Chip* obj, const uint8_t* fonts) 
 {
     printf("[MEMORY] Loading Fonts into RAM...\n");
 
@@ -99,7 +81,6 @@ void ram_load_fonts(Chip* obj, uint8_t* fonts)
 
     return;
 }
-
 
 void ram_load_instructions(void)
 {
