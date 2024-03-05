@@ -6,7 +6,7 @@
 #include "graphics.h"
 
 
-int8_t chip_init(Chip* obj, const char* romfile)
+int8_t chip_init(Chip* obj, const char* romfile, uint16_t width, uint16_t height)
 {
     if (!obj) {
         fprintf(stderr, "[CHIP] Error: struct Chip pointer was NULL\n");
@@ -14,18 +14,34 @@ int8_t chip_init(Chip* obj, const char* romfile)
         return -1;
     }
 
-    if (ram_load_rom(obj, romfile) != 0) { 
-        fprintf(stderr, "[CHIP] Error reading ROM\n"); 
+    // Initialise members
+    for (size_t i = 0; i < CC8_SIZE_REGISTERS; ++i)     { obj->regs[i] = 0; }    
+    for (size_t i = 0; i < CC8_SIZE_RAM; ++i)           { obj->mem[i] = 0; }   
+    for (size_t i = 0; i < CC8_SIZE_STACK; ++i)         { obj->stack[i] = 0; }   
+    for (size_t i = 0; i < CC8_SIZE_KEYS; ++i)          { obj->keys[i] = 0; }       
+    for (size_t i = 0; i < CC8_GFX_BUFF_SIZE; ++i)      { obj->gfx.graphics_buffer[i] = 0; }   
 
-        return -1;
-    }
+    obj->reg_index      = 0;
+    obj->reg_pc         = CC8_ADDR_PROG_START;
+    obj->ptr_stack      = 0;
+    obj->delay_timer    = 0;
+    obj->sound_timer    = 0;
+    obj->opcode         = 0;
+
+    gfx_initialise(&(obj->gfx.window), &(obj->gfx.renderer), &(obj->gfx.texture), width, height);
 
     ram_load_fonts(obj, cc8_fontset);
 
     ram_load_instructions();
 
-    obj->reg_pc = CC8_ADDR_PROG_START;
 
+    // load rom
+    if (ram_load_rom(obj, romfile) != 0) { 
+        fprintf(stderr, "[CHIP] Error reading ROM\n"); 
+
+        return -1;
+    }
+    
     return 0;
 }
 

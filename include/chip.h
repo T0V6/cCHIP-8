@@ -9,7 +9,7 @@
 
 
 /* Initialises chip */
-int8_t chip_init(Chip* obj, const char* romfile);
+int8_t chip_init(Chip* obj, const char* romfile, uint16_t width, uint16_t height);
 
 /* Executes a cycle */
 void chip_run(Chip* obj);

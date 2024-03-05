@@ -15,5 +15,4 @@ void gfx_destroy(SDL_Window* window, SDL_Renderer* renderer, SDL_Texture* textur
 /* Render to screen */
 void render(uint32_t* buffer, SDL_Renderer* renderer, SDL_Texture* texture);
 
-
 #endif // GRAPHICS_H
