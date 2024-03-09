@@ -52,7 +52,7 @@ int8_t gfx_initialise(SDL_Window** window, SDL_Renderer** renderer, SDL_Texture*
 
     *texture = SDL_CreateTexture(*renderer, 
     SDL_PIXELFORMAT_RGBA8888, 
-    SDL_TEXTUREACCESS_TARGET, 
+    SDL_TEXTUREACCESS_STREAMING, 
     CC8_GFX_BUFF_WIDTH, 
     CC8_GFX_BUFF_HEIGHT);
 
@@ -85,7 +85,7 @@ void gfx_destroy(SDL_Window* window, SDL_Renderer* renderer, SDL_Texture* textur
     return;
 }
 
-void render(uint32_t* buffer, SDL_Renderer* renderer, SDL_Texture* texture) 
+void gfx_render(uint32_t* buffer, SDL_Renderer* renderer, SDL_Texture* texture) 
 {
     // update texture from buffer values
     SDL_UpdateTexture(texture, NULL, buffer, CC8_GFX_BUFF_WIDTH * sizeof(uint32_t));

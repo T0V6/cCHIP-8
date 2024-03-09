@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include "mem.h"
+#include "keys.h"
 
 
 /* Initialises chip */

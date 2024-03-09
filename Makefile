@@ -17,7 +17,7 @@ SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
 # Main target
-TARGET = $(BIN_DIR)/main
+TARGET = $(BIN_DIR)/chip8
 
 # Create directories
 $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))

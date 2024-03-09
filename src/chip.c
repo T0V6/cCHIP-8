@@ -34,7 +34,6 @@ int8_t chip_init(Chip* obj, const char* romfile, uint16_t width, uint16_t height
 
     ram_load_instructions();
 
-
     // load rom
     if (ram_load_rom(obj, romfile) != 0) { 
         fprintf(stderr, "[CHIP] Error reading ROM\n"); 
@@ -51,14 +50,18 @@ void chip_run(Chip* obj)
     // gets first byte, then merge the second one
     obj->opcode = (obj->mem[obj->reg_pc] << 8U) | obj->mem[obj->reg_pc + 1]; 
 
+    // store next instruction
     obj->reg_pc += 2;
 
     // get the first value so instruction array can redirect to the opcode
     // shifted 12 since we need only the first hex (4 bits)
     cc8_instruction[(obj->opcode & 0xF000U) >> 12U](obj);
 
+    // decrement timers each cycle
     if (obj->delay_timer > 0)   { obj->delay_timer -= 1; }
     if (obj->sound_timer > 0)   { obj->sound_timer -= 1; }
+
+    gfx_render(obj->gfx.graphics_buffer, obj->gfx.renderer, obj->gfx.texture);
 
     return;
 }
