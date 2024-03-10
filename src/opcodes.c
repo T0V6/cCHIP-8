@@ -447,7 +447,7 @@ void op_fx65(Chip* obj)
 void (*cc8_instruction[0xF + 1])(Chip* obj) = { NULL };
 void (*cc8_table_0[0xE + 1])(Chip* obj)     = { NULL };
 void (*cc8_table_8[0xE + 1])(Chip* obj)     = { NULL };
-void (*cc8_table_e[0xE + 1])(Chip* obj)     = { NULL };
+void (*cc8_table_e[0xA + 1])(Chip* obj)     = { NULL };
 void (*cc8_table_f[0x65 + 1])(Chip* obj)    = { NULL };
 
 void opcodes_0(Chip* obj)
@@ -466,7 +466,7 @@ void opcodes_8(Chip* obj)
 
 void opcodes_e(Chip* obj)
 {
-    cc8_table_e[obj->opcode & 0x00FFU](obj);
+    cc8_table_e[(obj->opcode & 0x00F0U) >> 4U](obj);
 
     return;
 }

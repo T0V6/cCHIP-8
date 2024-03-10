@@ -25,11 +25,11 @@ $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
 # Build
 $(TARGET): $(OBJ_FILES)
-	$(CC) $^ $(SDL_LFLAGS) -o $@
+	$(CC) $^ $(SDL_LFLAGS) -o $@ -g
 
 # Compile
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) $(SDL_CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -g $(SDL_CFLAGS) -c $< -o $@
 
 # Clean
 clean:

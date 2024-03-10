@@ -221,7 +221,7 @@ extern void (*cc8_table_0[0xE + 1])(Chip* obj);
 /* Table of function pointers for 8-starting instructions */
 extern void (*cc8_table_8[0xE + 1])(Chip* obj);
 /* Table of function pointers for E-starting instructions */
-extern void (*cc8_table_e[0xE + 1])(Chip* obj);
+extern void (*cc8_table_e[0xA + 1])(Chip* obj);
 /* Table of function pointers for F-starting instructions */
 extern void (*cc8_table_f[0x65 + 1])(Chip* obj);
 

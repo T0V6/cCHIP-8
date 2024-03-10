@@ -115,8 +115,8 @@ void ram_load_instructions(void)
     cc8_table_8[0x7] = &op_8xy7; 
     cc8_table_8[0xE] = &op_8xye; 
 
-    cc8_table_e[0x1] = &op_exa1;
-    cc8_table_e[0xE] = &op_ex9e;
+    cc8_table_e[0xA] = &op_exa1;
+    cc8_table_e[0x9] = &op_ex9e;
 
     cc8_table_f[0x07] = &op_fx07;
     cc8_table_f[0x0A] = &op_fx0a;
