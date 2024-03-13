@@ -5,32 +5,29 @@ CHIP-8 is a simple interpreted programming language developed in the mid-1970s f
 
 ## Installation
 
-1. Open your project's <xx> file, then <...>
-
+1. Clone the repository
 ```bash
-    TODO
+    git clone https://github.com/TV08/cCHIP-8.git
 ```
 
-
-2. Run the following command in your terminal:
-
+2. Build source code
 ```bash
-    TODO
+    make
 ```
 
 ## Usage
-
-```c
-    TODO
+* From project's folder
+```bash
+    ./bin/chip8 <rom file>
 ```
+* The key assignments depend on the chosen ROM!
 
 ## Documentation
-TODO
-
+The source code contains numerous development comments created during the emulator's development, explaining its functionality. This currently serves as the project's sole documentation.
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Bugs, proposals, or feature pull requests are welcome :D
 
 ## License
 

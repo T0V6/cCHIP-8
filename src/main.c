@@ -8,7 +8,6 @@
     * Sound 
 */
 
-
 #include <time.h>
 #include "chip.h"
 
@@ -27,36 +26,28 @@ int main(int argc, char** argv)
         argv[0][0]  == *(argv[0])   == *(*(argv + 0) + 0)   == *(*(&matrix + 0) + 0)
     */
 
-   if (argc != 2 || !argv[1]) {
+   if (argc != 3 || !argv[1]) {
         fprintf(stderr, "[MAIN] Error parsing arguments\n");
-        printf("Usage:\t%s <ROM>\n", argv[0]);
+        printf("Usage:\t%s <ROM> <Delay>\n", argv[0]);
 
         return -1;
    }
     
     srand(time(NULL));
 
-    const float delay = 2.0f;
-    const char* rom     = argv[1]; //argv[0] is program's name 
+    const char* rom         = argv[1]; //argv[0] = program's name 
+    const uint32_t delay    = strtoul(argv[2], NULL, 0);
 
     Chip cc8;
     chip_init(&cc8, rom, 640, 480);
     
-    
-    clock_t time_start = clock(); // get start time
     uint8_t quit = 1;
 
-    while (quit) {
+    while(quit) {
         quit = keys_input(cc8.keys);
+        SDL_Delay(delay);
 
-        clock_t time_current = clock();
-        float diff = ((float)(time_current - time_start) / CLOCKS_PER_SEC) * 1000.0f;
-
-        if (diff > delay) {
-            time_start = time_current;
-
-            chip_run(&cc8);
-        }
+        chip_run(&cc8);
     }
 
     return 0;
