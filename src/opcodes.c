@@ -316,18 +316,20 @@ void op_dxyn(Chip* obj)
 
 void op_ex9e(Chip* obj)
 {
-    uint8_t vx = (obj->opcode & 0x0F00U) >> 8U;
+    uint8_t vx  = (obj->opcode & 0x0F00U) >> 8U;
+    uint8_t key = obj->regs[vx];
 
-    if (obj->keys[obj->regs[vx]])   { obj->reg_pc += 2; }
+    if (obj->keys[key])   { obj->reg_pc += 2; }
 
     return;
 }
 
 void op_exa1(Chip* obj)
 {
-    uint8_t vx = (obj->opcode & 0x0F00U) >> 8U;
+    uint8_t vx  = (obj->opcode & 0x0F00U) >> 8U;
+    uint8_t key = obj->regs[vx];
 
-    if (!obj->keys[obj->regs[vx]])   { obj->reg_pc += 2; }
+    if (!obj->keys[key])   { obj->reg_pc += 2; }
 
     return;
 }
@@ -357,7 +359,7 @@ void op_fx0a(Chip* obj)
         }
     }
 
-    if (!resume)    { obj->reg_pc += 2; } // execute again
+    if (!resume)    { obj->reg_pc -= 2; } // execute again
 
     return;
 }

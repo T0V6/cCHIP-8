@@ -135,27 +135,27 @@ uint8_t keys_input(uint8_t* keys_array)
                 break;
 
 			case SDLK_z:
-                keys_array[0xA] = 0;
+                keys_array[10] = 0;
                 break;
 
 			case SDLK_c:
-                keys_array[0xB] = 0;
+                keys_array[11] = 0;
                 break;
 
 			case SDLK_4:
-                keys_array[0xC] = 0;
+                keys_array[12] = 0;
                 break;
 
 			case SDLK_r:
-                keys_array[0xD] = 0;
+                keys_array[13] = 0;
                 break;
 
 			case SDLK_f:
-                keys_array[0xE] = 0;
+                keys_array[14] = 0;
                 break;
 
 			case SDLK_v:
-                keys_array[0xF] = 0;
+                keys_array[15] = 0;
                 break;
 			}
 			break;
@@ -163,8 +163,6 @@ uint8_t keys_input(uint8_t* keys_array)
         default:
             break;
         }
-
-        break;
     }
 
     return status;

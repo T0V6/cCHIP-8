@@ -6,18 +6,6 @@
 
 /* TODO:
     * Sound 
-    * Error: null pointer dereference after initial screens on ROMs
-*/
-/*  
-    FIxed errors:
-    Stupid bug was because opcode was 009E. Since the AND mask was 00FF, it tried to access the array at 9E (158) position,
-        But array had a maximum posiiton of E+1.
-        Since there are only 2 instructions starting with E:
-            ExA1
-            Ex9E
-        And neither of the last 2 bytes repeat, we can choose to use A/9 or 1/E
-        The array will be smaller if we choose the first bytes, since maximum will be A+1 (11) vs E+1 (16)
-        Then the mask will be 00F0
 */
 
 
@@ -27,8 +15,6 @@
 
 int main(int argc, char** argv)
 {
-    (void)argc; // ignore this
-
     /* 
     Random notes:
         char* arg1 = "hello";   // pointer to the first character in the string
@@ -50,7 +36,7 @@ int main(int argc, char** argv)
     
     srand(time(NULL));
 
-    const float delay = 10.0f;
+    const float delay = 2.0f;
     const char* rom     = argv[1]; //argv[0] is program's name 
 
     Chip cc8;
