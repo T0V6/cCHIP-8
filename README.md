@@ -15,6 +15,11 @@ CHIP-8 is a simple interpreted programming language developed in the mid-1970s f
     make
 ```
 
+3. Delete build
+```bash
+    make clean
+```
+
 ## Usage
 * From project's folder
 ```bash
