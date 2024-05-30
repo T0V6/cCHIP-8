@@ -7,7 +7,7 @@ CHIP-8 is a simple interpreted programming language developed in the mid-1970s f
 
 1. Clone the repository
 ```bash
-    git clone https://github.com/TV08/cCHIP-8.git
+    git clone https://github.com/T0V6/cCHIP-8.git
 ```
 
 2. Build source code
