@@ -23,12 +23,12 @@ CHIP-8 is a simple interpreted programming language developed in the mid-1970s f
 ## Usage
 * From project's folder
 ```bash
-    ./bin/chip8 <rom file>
+    ./bin/chip8 <rom file> <delay>
 ```
 * The key assignments depend on the chosen ROM!
 
 ## Documentation
-The source code contains numerous development comments created during the emulator's development, explaining its functionality. This currently serves as the project's sole documentation.
+The source code contains numerous developer comments explaining emulator's functionality. This currently serves as the project's sole documentation.
 
 ## Contributing
 
